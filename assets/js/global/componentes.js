@@ -67,23 +67,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h5>Contato</h5>
                     <ul class="list-unstyled  footer-contact-list">
                         <li>
-                            <i class="bi bi-telephone-fill"></i>
-                            (16) 99112-8704
+                            <a href="tel: 5516991128704" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
+                                <i class="bi bi-telephone-fill"></i>
+                                (16) 99112-8704
+                            </a>
                         </li>
                         <li>
                             <a
                             href="https://mail.google.com/mail/u/0/?hl=pt-BR#search/asilotaquaritinga%40hotmail.com?compose=new"
                             target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
-                            <i class="bi bi-envelope-at-fill"></i>
-                            asilotaquaritinga@hotmail.com
+                                <i class="bi bi-envelope-at-fill"></i>
+                                asilotaquaritinga@hotmail.com
                             </a>
                         </li>
                         <li>
                             <a
                             href="https://www.google.com/maps/place/Lar+S%C3%A3o+Vicente+de+Paulo/@-21.403773,-48.506282,257m/data=!3m1!1e3!4m6!3m5!1s0x94b9396c54979ad9:0x24f576fc8085ac03!8m2!3d-21.4036416!4d-48.5061347!16s%2Fg%2F11f1kj47jq?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
                             target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
-                            <i class="bi bi-geo-alt-fill"></i>
-                            Rua São José, 1149 15900009 Taquaritinga, SP
+                                <i class="bi bi-geo-alt-fill"></i>
+                                Rua São José, 1149 15900009 Taquaritinga, SP
                             </a>
                         </li>
                     </ul>
@@ -101,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     
                     <div class="social-icons text-center text-md-end">
-                        <a href="#" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
+                        <a href="https://wa.me/5516991128704" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
                             <i class="bi bi-whatsapp"></i>
                         </a>
                         <a href="https://www.facebook.com/asilotaquaritinga/" target="_blank" class="social-icon-circle" aria-label="Facebook">
