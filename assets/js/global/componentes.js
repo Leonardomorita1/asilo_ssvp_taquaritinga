@@ -68,15 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     <ul class="list-unstyled footer-contact-list">
                         <li>
                             <i class="bi bi-telephone-fill"></i>
-                            (XX) XXXX-XXXX
+                            (16) 99112-8704
                         </li>
                         <li>
+                            <a
+                            href="https://mail.google.com/mail/u/0/?hl=pt-BR#search/asilotaquaritinga%40hotmail.com?compose=new"
+                            target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
                             <i class="bi bi-envelope-at-fill"></i>
-                            contato@larsvp.org.br
+                            asilotaquaritinga@hotmail.com
+                            </a>
                         </li>
                         <li>
+                            <a
+                            href="https://www.google.com/maps/place/Lar+S%C3%A3o+Vicente+de+Paulo/@-21.403773,-48.506282,257m/data=!3m1!1e3!4m6!3m5!1s0x94b9396c54979ad9:0x24f576fc8085ac03!8m2!3d-21.4036416!4d-48.5061347!16s%2Fg%2F11f1kj47jq?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer" class="text-decoration-none text-white">
                             <i class="bi bi-geo-alt-fill"></i>
-                            Rua Exemplo, 123 - Bairro, Cidade - UF, CEP 12345-678
+                            Rua São José, 1149 15900009 Taquaritinga, SP
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -96,10 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a href="#" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
                             <i class="bi bi-whatsapp"></i>
                         </a>
-                        <a href="#" target="_blank" class="social-icon-circle" aria-label="Facebook">
+                        <a href="https://www.facebook.com/asilotaquaritinga/" target="_blank" class="social-icon-circle" aria-label="Facebook">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="#" target="_blank" class="social-icon-circle" aria-label="Instagram">
+                        <a href="https://www.instagram.com/asilo.taquaritinga.ssvp" target="_blank" class="social-icon-circle" aria-label="Instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
                     </div>

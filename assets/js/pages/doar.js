@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Feedback visual
                 const originalText = copyButton.innerHTML;
                 copyButton.innerHTML = '<i class="bi bi-check-lg"></i> Copiado!';
-                copyButton.style.backgroundColor = 'var(--color-success)';
-                copyButton.style.borderColor = 'var(--color-success)';
+                copyButton.style.backgroundColor = 'green';
+                copyButton.style.borderColor = 'green';
 
                 setTimeout(() => {
                     copyButton.innerHTML = originalText;
