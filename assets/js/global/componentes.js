@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="col-lg-5 col-md-12 footer-contact text-center text-md-start">
                     <h5>Contato</h5>
-                    <ul class="list-unstyled footer-contact-list">
+                    <ul class="list-unstyled  footer-contact-list">
                         <li>
                             <i class="bi bi-telephone-fill"></i>
                             (16) 99112-8704

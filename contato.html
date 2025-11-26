@@ -52,8 +52,7 @@
 
                 <div class="col-lg-4 col-md-12 col-lg-4">
                     <div class="card contact-card text-center card-hover fade-in-right delay-3">
-                        <a
-                            href="https://mail.google.com/mail/u/0/?hl=pt-BR#search/asilotaquaritinga%40hotmail.com?compose=new"
+                        <a href="https://mail.google.com/mail/u/0/?hl=pt-BR#search/asilotaquaritinga%40hotmail.com?compose=new"
                             target="_blank" rel="noopener noreferrer" class="text-decoration-none text-dark">
                             <div class="card-body">
                                 <i class="bi bi-envelope-at-fill contact-icon"></i>
@@ -81,7 +80,14 @@
                 <div class="col-lg-6 fade-in-right">
                     <div class="contact-form-wrapper">
                         <h3 class="mb-4 text-center text-lg-start">Envie sua Mensagem</h3>
-                        <form action="#" method="POST">
+
+                        <!-- Mensagens de feedback -->
+                        <div id="mensagemFeedback" class="alert d-none" role="alert"></div>
+
+                        <form id="formContato" action="enviar-email.php" method="POST">
+                            <!-- Campo honeypot para proteção contra spam (invisível) -->
+                            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Nome Completo</label>
                                 <input type="text" class="form-control" id="fullName" name="fullName" required>
@@ -109,10 +115,72 @@
                                     required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-principal">Enviar Mensagem</button>
+                            <button type="submit" class="btn btn-principal" id="btnEnviar">
+                                <span class="btn-text">Enviar Mensagem</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
                         </form>
                     </div>
                 </div>
+
+                <script>
+                    document.getElementById('formContato').addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        const form = this;
+                        const btnEnviar = document.getElementById('btnEnviar');
+                        const btnText = btnEnviar.querySelector('.btn-text');
+                        const spinner = btnEnviar.querySelector('.spinner-border');
+                        const mensagemFeedback = document.getElementById('mensagemFeedback');
+
+                        // Desabilita o botão e mostra loading
+                        btnEnviar.disabled = true;
+                        btnText.textContent = 'Enviando...';
+                        spinner.classList.remove('d-none');
+                        mensagemFeedback.classList.add('d-none');
+
+                        // Cria FormData com os dados do formulário
+                        const formData = new FormData(form);
+
+                        // Envia via AJAX
+                        fetch('enviar-email.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                // Remove classes anteriores
+                                mensagemFeedback.classList.remove('alert-success', 'alert-danger', 'd-none');
+
+                                if (data.sucesso) {
+                                    // Sucesso
+                                    mensagemFeedback.classList.add('alert-success');
+                                    mensagemFeedback.textContent = data.mensagem;
+                                    form.reset(); // Limpa o formulário
+                                } else {
+                                    // Erro
+                                    mensagemFeedback.classList.add('alert-danger');
+                                    mensagemFeedback.textContent = data.mensagem;
+                                }
+
+                                // Scroll suave até a mensagem
+                                mensagemFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            })
+                            .catch(error => {
+                                console.error('Erro:', error);
+                                mensagemFeedback.classList.remove('d-none', 'alert-success');
+                                mensagemFeedback.classList.add('alert-danger');
+                                mensagemFeedback.textContent = 'Erro ao enviar mensagem. Por favor, tente novamente.';
+                            })
+                            .finally(() => {
+                                // Reabilita o botão
+                                btnEnviar.disabled = false;
+                                btnText.textContent = 'Enviar Mensagem';
+                                spinner.classList.add('d-none');
+                            });
+                    });
+                </script>
             </div>
         </div>
     </section>
