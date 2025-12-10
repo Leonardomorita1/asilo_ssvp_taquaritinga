@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 // JavaScript para Animações de Scroll
-// Adicione este código ao seu arquivo global.js ou crie um arquivo separado
 
 // Função para verificar se o elemento está visível na viewport
 function isElementInViewport(el) {
@@ -121,7 +120,6 @@ function animateSequence(selector, delay = 100) {
     });
 }
 
-// Observer API para animações mais eficientes (alternativa moderna)
 if ('IntersectionObserver' in window) {
     const observerOptions = {
         threshold: 0.15,
