@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     
                     <div class="text-center text-md-start mb-3 mb-md-0">
-                        <p>&copy; 2025 Lar São Vicente de Paulo. Todos os direitos reservados.</p>
+                        <p>&copy; 2026 Lar São Vicente de Paulo. Todos os direitos reservados.</p>
                     </div>
                     
                     <div class="social-icons text-center text-md-end">
