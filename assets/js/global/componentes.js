@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         class="d-block w-100" alt="Imagem 1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Bem-vindo ao Lar São Vicente de Paulo</h5>
-                        <p>Há mais de 100 anos cuidando com amor, carinho e dedicação dos nossos idosos</p>
+                        <p>Cuidando com amor, carinho e dedicação dos nossos idosos</p>
                         <a href="sobre.html" class="btn btn-primary btn-lg">Conheça Nossa História</a>
                     </div>
                 </div>
