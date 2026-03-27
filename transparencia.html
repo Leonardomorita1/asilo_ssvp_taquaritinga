@@ -4,84 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lar São Vicente de Paulo</title>
+    <title>Transparência - Lar São Vicente de Paulo</title>
     <link rel="stylesheet" href="assets/css/pages/trans.css">
     <link rel="icon"
         href="https://www.ssvpbrasil.org.br/source/files/c/885/DECOM__-_Logotipo_SSVP_Brasil_-_azul_e_branco_01-716579_1022-1028-0-0.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <style>
-        .transparency-toolbar {
-            background-color: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
-            margin-bottom: 1.75rem;
-        }
-
-        .transparency-toolbar .form-label {
-            font-weight: 600;
-            color: var(--color-primary, #0d6efd);
-            margin-bottom: 0.5rem;
-        }
-
-        .transparency-toolbar .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-        }
-
-        .transparency-toolbar .btn i {
-            font-size: 1rem;
-        }
-
-        .drive-frame-container {
-            border-radius: 1.25rem;
-            overflow: hidden;
-            background-color: #ffffff;
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-            position: relative;
-        }
-
-        .drive-frame-container iframe {
-            display: block;
-            width: 100%;
-            min-height: 540px;
-            border: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .drive-frame-container iframe.loading {
-            opacity: 0.4;
-        }
-
-        /* Aviso sutil sobre limitação do sort */
-        .sort-notice {
-            font-size: 0.78rem;
-            color: #6c757d;
-            margin-top: 0.35rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        @media (max-width: 767.98px) {
-            .transparency-toolbar {
-                padding: 1.25rem;
-            }
-
-            .transparency-toolbar .btn-group {
-                width: 100%;
-            }
-
-            .transparency-toolbar .btn-group .btn {
-                flex: 1 1 auto;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -89,22 +19,24 @@
     <div id="header-placeholder"></div>
 
     <main>
-        <section class="container py-5">
-            <h1 class="display-4 fw-bold mb-5 text-center fade-in-down" style="color: var(--color-primary);">
-                Nossa Transparência
-            </h1>
-            <p class="lead text-center mb-5 fade-in-up">
-                No Lar São Vicente de Paulo, a transparência é um pilar fundamental da nossa missão. Temos o compromisso
-                de prestar contas sobre a gestão dos recursos que recebemos, garantindo que cada doação seja utilizada
-                de forma responsável e para o bem-estar dos nossos residentes. Para mais informações, consulte nossos
-                relatórios e documentos.
-            </p>
 
-            <div class="transparency-toolbar fade-in-up">
-                <div class="row g-3 align-items-end">
-                    <div class="col-12 col-md-6">
-                        <label for="drive-sort-filter" class="form-label">Ordenar por</label>
-                        <select id="drive-sort-filter" class="form-select">
+        <!-- Hero -->
+        <div class="page-hero">
+            <div class="page-hero__inner container">
+                <span class="page-hero__label">Prestação de contas</span>
+                <h1 class="page-hero__title">Nossa <em>Transparência</em></h1>
+                <p class="page-hero__sub">Temos o compromisso de prestar contas sobre a gestão dos recursos que recebemos, garantindo que cada doação seja utilizada de forma responsável.</p>
+            </div>
+            <div class="page-hero__accent" aria-hidden="true"></div>
+        </div>
+
+        <div class="container trans-body">
+
+            <div class="transparency-toolbar fade-in-up delay-1">
+                <div class="toolbar-row">
+                    <div class="toolbar-col">
+                        <label for="drive-sort-filter" class="toolbar-label">Ordenar por</label>
+                        <select id="drive-sort-filter" class="toolbar-select">
                             <option value="recent" selected>Mais recentes</option>
                             <option value="oldest">Mais antigos</option>
                             <option value="az">Nome (A–Z)</option>
@@ -115,48 +47,42 @@
                             A ordenação pode não ser aplicada dependendo das configurações do Google Drive.
                         </p>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <span class="form-label d-block">Visualização</span>
-                        <div class="btn-group" role="group" aria-label="Alternar visualização da pasta">
-                            <button type="button" class="btn btn-outline-primary active" data-drive-view="grid"
-                                aria-pressed="true">
-                                <i class="bi bi-grid-3x3-gap-fill"></i>
-                                Grid
+                    <div class="toolbar-col toolbar-col--right">
+                        <span class="toolbar-label">Visualização</span>
+                        <div class="view-toggle" role="group" aria-label="Alternar visualização">
+                            <button type="button" class="view-btn active" data-drive-view="grid" aria-pressed="true">
+                                <i class="bi bi-grid-3x3-gap-fill"></i> Grid
                             </button>
-                            <button type="button" class="btn btn-outline-primary" data-drive-view="list"
-                                aria-pressed="false">
-                                <i class="bi bi-view-list"></i>
-                                Lista
+                            <button type="button" class="view-btn" data-drive-view="list" aria-pressed="false">
+                                <i class="bi bi-view-list"></i> Lista
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="drive-frame-container fade-in-up">
+            <div class="drive-frame-container fade-in-up delay-2">
                 <iframe id="transparency-drive-frame" title="Documentos de Transparência" loading="lazy"></iframe>
             </div>
 
-        </section>
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
     <script src="assets/js/pages/sobre.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
     <script src="assets/js/global/global.js"></script>
     <script src="assets/js/global/componentes.js"></script>
 
     <script>
         (function () {
             const DRIVE_FOLDER_ID = '1vpCu76AjQ8LvcNJ5HsF599hp8G_JMS00';
-            const iframe = document.getElementById('transparency-drive-frame');
+            const iframe      = document.getElementById('transparency-drive-frame');
             const viewButtons = document.querySelectorAll('[data-drive-view]');
-            const sortSelect = document.getElementById('drive-sort-filter');
+            const sortSelect  = document.getElementById('drive-sort-filter');
 
             if (!iframe || !sortSelect) return;
 
@@ -166,69 +92,49 @@
             let reloadTimer = null;
 
             const sortConfig = {
-                recent:  { sort: '13', direction: 'd' },
-                oldest:  { sort: '13', direction: 'a' },
-                az:      { sort: '1',  direction: 'a' },
-                za:      { sort: '1',  direction: 'd' }
+                recent: { sort: '13', direction: 'd' },
+                oldest: { sort: '13', direction: 'a' },
+                az:     { sort: '1',  direction: 'a' },
+                za:     { sort: '1',  direction: 'd' }
             };
 
             function buildSrc() {
                 const { sort, direction } = sortConfig[currentSort] || sortConfig.recent;
-                // O fragmento #grid / #list controla a view; sort/direction são enviados mas
-                // o Google pode ignorá-los dependendo da versão da UI da pasta.
                 return `${BASE_URL}&sort=${sort}&direction=${direction}#${currentView}`;
             }
 
-            /**
-             * Força um reload real do iframe mesmo quando apenas o fragmento (#) muda.
-             * Sem o reset para string vazia o browser reutiliza o documento carregado
-             * e o fragmento novo nunca é processado pelo Google Drive.
-             */
             function refreshIframe() {
-                // Cancela qualquer reload pendente para evitar chamadas duplas rápidas
                 if (reloadTimer) clearTimeout(reloadTimer);
-
                 iframe.classList.add('loading');
-
-                // Passo 1: limpa o src — garante que o browser descarte o documento atual
                 iframe.removeAttribute('src');
-
-                // Passo 2: após um tick, reatribui o src completo com os novos parâmetros
                 reloadTimer = setTimeout(function () {
                     iframe.src = buildSrc();
                 }, 80);
             }
 
-            // Remove a classe de loading quando o iframe terminar de carregar
             iframe.addEventListener('load', function () {
                 iframe.classList.remove('loading');
             });
 
-            // Listener do select de ordenação
             sortSelect.addEventListener('change', function () {
                 currentSort = this.value;
                 refreshIframe();
             });
 
-            // Listeners dos botões de visualização
             viewButtons.forEach(function (button) {
                 button.addEventListener('click', function () {
                     const desiredView = button.getAttribute('data-drive-view');
                     if (desiredView === currentView) return;
-
                     currentView = desiredView;
-
                     viewButtons.forEach(function (btn) {
                         const isActive = btn === button;
                         btn.classList.toggle('active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
-
                     refreshIframe();
                 });
             });
 
-            // Carga inicial
             refreshIframe();
         })();
     </script>

@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="assets/css/pages/index.css">
     <link rel="icon"
         href="https://www.ssvpbrasil.org.br/source/files/c/885/DECOM__-_Logotipo_SSVP_Brasil_-_azul_e_branco_01-716579_1022-1028-0-0.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,164 +19,189 @@
     <div id="header-placeholder"></div>
 
     <main>
-        
-        <!-- Cards de Missão, Visão e Valores com Animação -->
-        <div class="cards container my-5">
-            <div class="row text-center mb-5 fade-in-down">
-                <div class="col-12">
-                    <h2 class="display-5 fw-bold mb-3">Nossos Pilares</h2>
-                    <p class="lead text-muted">Os valores que guiam nosso trabalho diário</p>
+
+        <!-- Hero -->
+        <div class="page-hero">
+            <div class="page-hero__inner container">
+                <span class="page-hero__label">Bem-vindo</span>
+                <h1 class="page-hero__title">Cuidado com <em>Amor</em></h1>
+                <p class="page-hero__sub">Há mais de 107 anos proporcionando esperança, dignidade e acolhimento aos idosos de Taquaritinga e região.</p>
+                <div class="page-hero__actions">
+                    <a href="doar.html" class="hero-btn hero-btn--primary">
+                        <i class="bi bi-heart-fill"></i> Fazer uma Doação
+                    </a>
+                    <a href="sobre.html" class="hero-btn hero-btn--outline">
+                        Conheça nossa história
+                    </a>
                 </div>
+            </div>
+            <div class="page-hero__accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- Cards Missão Visão Valores -->
+        <div class="cards-section container">
+            <div class="section-header fade-in-down">
+                <span class="section-label">Quem somos</span>
+                <h2 class="section-title">Nossos Pilares</h2>
+                <p class="section-sub">Os valores que guiam nosso trabalho diário</p>
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
-                    <div class="card h-100 card-hover fade-in-left delay-1">
+                    <div class="pillar-card fade-in-left delay-1">
                         <img src="https://img.freepik.com/fotos-gratis/uma-boa-transaccao-e-o-sucesso_329181-14663.jpg?semt=ais_hybrid&w=740&q=80"
-                            class="card-img-top" alt="Transação">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-bar-chart-fill"></i> Missão</h5>
-                            <p class="card-text">Ser uma <b>rede de amigos,</b> buscando a santificação por meio do
-                                serviço ao necessitado com respeito, amor, alegria e em defesa da justiça social.</p>
+                            class="pillar-card__img" alt="Missão">
+                        <div class="pillar-card__body">
+                            <div class="pillar-card__icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h5 class="pillar-card__title">Missão</h5>
+                            <p class="pillar-card__text">Ser uma <b>rede de amigos</b>, buscando a santificação por meio do serviço ao necessitado com respeito, amor, alegria e em defesa da justiça social.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100 card-hover fade-in-up delay-2">
+                    <div class="pillar-card fade-in-up delay-2">
                         <img src="https://img.freepik.com/fotos-gratis/cuidadora-feminina-na-casa-de-seu-cliente-cuidando-de-pessoa-idosa_23-2150216408.jpg?semt=ais_hybrid&w=740&q=80"
-                            class="card-img-top" alt="Cuidadora">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-eye-fill"></i> Visão</h5>
-                            <p class="card-text">Ser reconhecida como uma organização nacional que promove a dignidade
-                                integral dos mais necessitados.</p>
+                            class="pillar-card__img" alt="Visão">
+                        <div class="pillar-card__body">
+                            <div class="pillar-card__icon"><i class="bi bi-eye-fill"></i></div>
+                            <h5 class="pillar-card__title">Visão</h5>
+                            <p class="pillar-card__text">Ser reconhecida como uma organização que promove a dignidade integral dos mais necessitados.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100 card-hover fade-in-right delay-3">
+                    <div class="pillar-card fade-in-right delay-3">
                         <img src="https://clinicaportal.com.br/wp-content/uploads/2021/09/Por-que-e-errado-chamar-uma-clinica-de-repouso-para-idosos-de-asilo.jpg"
-                            class="card-img-top" alt="Clínica">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-star-fill"></i> Valores</h5>
-                            <p class="card-text">Caridade, empatia, simplicidade, justiça e espiritualidade.</p>
+                            class="pillar-card__img" alt="Valores">
+                        <div class="pillar-card__body">
+                            <div class="pillar-card__icon"><i class="bi bi-star-fill"></i></div>
+                            <h5 class="pillar-card__title">Valores</h5>
+                            <p class="pillar-card__text">Caridade, empatia, simplicidade, justiça e espiritualidade.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Seção de Serviços -->
+        <!-- Serviços -->
         <section class="services-section">
             <div class="container">
-                <div class="row text-center mb-5 fade-in-down">
-                    <div class="col-12">
-                        <h2 class="display-5 fw-bold mb-3">Nossos Serviços</h2>
-                        <p class="lead text-muted">Cuidado integral para nossos idosos</p>
-                    </div>
+                <div class="section-header fade-in-down">
+                    <span class="section-label">O que oferecemos</span>
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p class="section-sub">Cuidado integral para nossos residentes</p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4 text-center fade-in-up delay-1">
-                        <div class="service-icon"><i class="bi bi-heart-pulse-fill"></i></div>
-                        <h4>Acompanhamento Médico</h4>
-                        <p class="text-muted">Equipe médica qualificada disponível 24 horas para cuidar da saúde dos
-                            nossos residentes.</p>
+                <div class="services-grid">
+                    <div class="service-item fade-in-up delay-1">
+                        <div class="service-item__icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                        <h4 class="service-item__title">Acompanhamento Médico</h4>
+                        <p class="service-item__text">Equipe médica qualificada disponível 24 horas para cuidar da saúde dos nossos residentes.</p>
                     </div>
-                    <div class="col-md-4 text-center fade-in-up delay-2">
-                        <div class="service-icon"><i class="bi bi-egg-fried"></i></div>
-                        <h4>Alimentação Balanceada</h4>
-                        <p class="text-muted">Refeições nutritivas preparadas por nutricionistas, respeitando
-                            necessidades individuais.</p>
+                    <div class="service-item fade-in-up delay-2">
+                        <div class="service-item__icon"><i class="bi bi-egg-fried"></i></div>
+                        <h4 class="service-item__title">Alimentação Balanceada</h4>
+                        <p class="service-item__text">Refeições nutritivas preparadas por nutricionistas, respeitando necessidades individuais.</p>
                     </div>
-                    <div class="col-md-4 text-center fade-in-up delay-3">
-                        <div class="service-icon"><i class="bi bi-music-note-beamed"></i></div>
-                        <h4>Atividades Recreativas</h4>
-                        <p class="text-muted">Programação diária com atividades físicas, culturais e de lazer para
-                            bem-estar e socialização.</p>
+                    <div class="service-item fade-in-up delay-3">
+                        <div class="service-item__icon"><i class="bi bi-music-note-beamed"></i></div>
+                        <h4 class="service-item__title">Atividades Recreativas</h4>
+                        <p class="service-item__text">Programação diária com atividades físicas, culturais e de lazer para bem-estar e socialização.</p>
                     </div>
-                    <div class="col-md-4 text-center fade-in-up delay-4">
-                        <div class="service-icon"><i class="bi bi-house-heart-fill"></i></div>
-                        <h4>Ambiente Acolhedor</h4>
-                        <p class="text-muted">Instalações confortáveis e seguras, proporcionando um verdadeiro lar para
-                            nossos idosos.</p>
+                    <div class="service-item fade-in-up delay-4">
+                        <div class="service-item__icon"><i class="bi bi-house-heart-fill"></i></div>
+                        <h4 class="service-item__title">Ambiente Acolhedor</h4>
+                        <p class="service-item__text">Instalações confortáveis e seguras, proporcionando um verdadeiro lar para nossos idosos.</p>
                     </div>
-                    <div class="col-md-4 text-center fade-in-up delay-5">
-                        <div class="service-icon"><i class="bi bi-people-fill"></i></div>
-                        <h4>Apoio Psicológico</h4>
-                        <p class="text-muted">Acompanhamento psicológico para cuidar da saúde mental e emocional dos
-                            residentes.</p>
+                    <div class="service-item fade-in-up delay-5">
+                        <div class="service-item__icon"><i class="bi bi-people-fill"></i></div>
+                        <h4 class="service-item__title">Apoio Psicológico</h4>
+                        <p class="service-item__text">Acompanhamento psicológico para cuidar da saúde mental e emocional dos residentes.</p>
                     </div>
-                    <div class="col-md-4 text-center fade-in-up delay-1">
-                        <div class="service-icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
-                        <h4>Fisioterapia</h4>
-                        <p class="text-muted">Sessões regulares de fisioterapia para manter mobilidade e qualidade de
-                            vida.</p>
+                    <div class="service-item fade-in-up delay-1">
+                        <div class="service-item__icon"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+                        <h4 class="service-item__title">Fisioterapia</h4>
+                        <p class="service-item__text">Sessões regulares de fisioterapia para manter mobilidade e qualidade de vida.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Depoimentos -->
+        <!-- Depoimentos -->
         <section class="testimonial-section">
             <div class="container">
-                <div class="row text-center mb-5 fade-in-down">
-                    <div class="col-12">
-                        <h2 class="display-5 fw-bold mb-3">O Que Dizem Sobre Nós</h2>
-                        <p class="lead">Histórias que nos inspiram a continuar</p>
-                    </div>
+                <div class="section-header section-header--light fade-in-down">
+                    <span class="section-label">Histórias reais</span>
+                    <h2 class="section-title">O Que Dizem Sobre Nós</h2>
+                    <p class="section-sub">Histórias que nos inspiram a continuar</p>
                 </div>
-                <div class="row">
+                <div class="row g-4">
                     <div class="col-md-4 fade-in-left delay-1">
                         <div class="testimonial-card">
-                            <p class="mb-3"><i class="bi bi-quote"></i> "O cuidado e carinho que meu pai recebe aqui é
-                                excepcional. A equipe trata todos como família."</p>
-                            <p class="fw-bold mb-0">- Maria Silva</p>
-                            <small>Familiar de Residente</small>
+                            <i class="bi bi-quote testimonial-card__quote"></i>
+                            <p class="testimonial-card__text">O cuidado e carinho que meu pai recebe aqui é excepcional. A equipe trata todos como família.</p>
+                            <div class="testimonial-card__author">
+                                <strong>Maria Silva</strong>
+                                <span>Familiar de Residente</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 fade-in-up delay-2">
                         <div class="testimonial-card">
-                            <p class="mb-3"><i class="bi bi-quote"></i> "Ser voluntário aqui mudou minha vida. Aprendo
-                                tanto com os idosos quanto ensino."</p>
-                            <p class="fw-bold mb-0">- João Santos</p>
-                            <small>Voluntário</small>
+                            <i class="bi bi-quote testimonial-card__quote"></i>
+                            <p class="testimonial-card__text">Ser voluntário aqui mudou minha vida. Aprendo tanto com os idosos quanto ensino.</p>
+                            <div class="testimonial-card__author">
+                                <strong>João Santos</strong>
+                                <span>Voluntário</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 fade-in-right delay-3">
                         <div class="testimonial-card">
-                            <p class="mb-3"><i class="bi bi-quote"></i> "Me sinto em casa aqui. As atividades são
-                                divertidas e fiz muitos amigos novos."</p>
-                            <p class="fw-bold mb-0">- Dona Ana</p>
-                            <small>Residente</small>
+                            <i class="bi bi-quote testimonial-card__quote"></i>
+                            <p class="testimonial-card__text">Me sinto em casa aqui. As atividades são divertidas e fiz muitos amigos novos.</p>
+                            <div class="testimonial-card__author">
+                                <strong>Dona Ana</strong>
+                                <span>Residente</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção -->
+        <!-- CTA -->
         <section class="cta-section fade-in-down">
-            <div class="container">
-                <h2 class="display-4 fw-bold mb-4">Faça Parte Desta História</h2>
-                <p class="lead mb-4">Sua ajuda pode transformar vidas. Doe, seja voluntário ou visite-nos!</p>
-                <div class="d-flex gap-3 justify-content-center flex-wrap">
-                    <a href="doar.html" class="btn-cta">Fazer uma Doação</a>
-                    <a href="contato.html" class="btn-cta">Entre em Contato</a>
+            <div class="container cta-section__inner">
+                <div class="cta-section__text">
+                    <h2 class="cta-section__title">Faça Parte Desta <em>História</em></h2>
+                    <p class="cta-section__sub">Sua ajuda pode transformar vidas. Doe, seja voluntário ou visite-nos!</p>
+                </div>
+                <div class="cta-section__actions">
+                    <a href="doar.html" class="hero-btn hero-btn--white">
+                        <i class="bi bi-heart-fill"></i> Fazer uma Doação
+                    </a>
+                    <a href="contato.html" class="hero-btn hero-btn--outline-white">Entre em Contato</a>
                 </div>
             </div>
         </section>
 
         <!-- Mapa -->
-        <div class="mapa mt-5 fade-in-up">
+        <div class="map-section">
             <div class="container mb-4">
-                <h2 class="text-center display-5 fw-bold mb-3">Onde Estamos</h2>
-                <p class="text-center lead text-muted mb-4">Venha nos visitar e conhecer nosso trabalho de perto</p>
+                <div class="section-header fade-in-up">
+                    <span class="section-label">Venha nos visitar</span>
+                    <h2 class="section-title">Onde Estamos</h2>
+                    <p class="section-sub">Conheça nosso trabalho de perto</p>
+                </div>
             </div>
-            <div class="ratio ratio-4x3">
+            <div class="map-frame fade-in-up">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1268.3359849204649!2d-48.50658994255741!3d-21.403293326852104!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9396c54979ad9%3A0x24f576fc8085ac03!2sLar%20S%C3%A3o%20Vicente%20de%20Paulo!5e1!3m2!1spt-BR!2sbr!4v1759163889672!5m2!1spt-BR!2sbr"
-                    style="padding: 5%; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Localização do Lar São Vicente de Paulo">
                 </iframe>
             </div>
         </div>
+
     </main>
 
     <div id="footer-placeholder"></div>
@@ -180,49 +209,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
     <script src="assets/js/global/global.js"></script>
     <script src="assets/js/global/componentes.js"></script>
-    <!-- Script de animação de contadores -->
-    <script>
-        // Animar contadores quando entrarem na viewport
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-
-            const observerOptions = {
-                threshold: 0.5
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                        const target = parseInt(entry.target.getAttribute('data-target'));
-                        const duration = 500;
-                        const increment = target / (duration / 16);
-                        let current = 0;
-
-                        const updateCounter = () => {
-                            current += increment;
-                            if (current < target) {
-                                entry.target.textContent = Math.floor(current);
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                entry.target.textContent = target;
-                                entry.target.classList.add('counted');
-                            }
-                        };
-
-                        updateCounter();
-                    }
-                });
-            }, observerOptions);
-
-            counters.forEach(counter => observer.observe(counter));
-        }
-
-        document.addEventListener('DOMContentLoaded', animateCounters);
-    </script>
 </body>
-
 
 </html>
