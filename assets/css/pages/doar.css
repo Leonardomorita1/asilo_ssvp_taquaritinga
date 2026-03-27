@@ -12,6 +12,7 @@ body {
     background-color: var(--color-primary);
     padding: 5rem 0 7rem;
     overflow: hidden;
+    z-index: 0;
 }
 
 .page-hero__inner {
