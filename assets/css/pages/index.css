@@ -1,33 +1,6 @@
 @import url(../global/global.css);
 
-/* CAROUSEL */
-#carouselExampleIndicators {
-    width: 100%;
-    height: 500px;
-    position: relative;
-}
 
-.carousel-item img {
-    height: 500px;
-    object-fit: cover;
-    filter: brightness(0.9);
-}
-
-.carousel-indicators button {
-    background-color: var(--color-white);
-    opacity: 0.6;
-    transition: opacity var(--transition-base);
-}
-
-.carousel-indicators button.active {
-    opacity: 1;
-    background-color: var(--color-secondary);
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-}
 
 /* CARDS */
 .cards {
