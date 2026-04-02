@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="assets/css/pages/trans.css">
     <link rel="icon"
         href="https://www.ssvpbrasil.org.br/source/files/c/885/DECOM__-_Logotipo_SSVP_Brasil_-_azul_e_branco_01-716579_1022-1028-0-0.jpg">
-    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <div id="carousel-placeholder"></div>
@@ -21,41 +25,84 @@
             <div class="page-hero__inner container">
                 <span class="page-hero__label">Prestação de contas</span>
                 <h1 class="page-hero__title">Nossa <em>Transparência</em></h1>
-                <p class="page-hero__sub">Temos o compromisso de prestar contas sobre a gestão dos recursos que recebemos, garantindo que cada doação seja utilizada de forma responsável.</p>
+                <p class="page-hero__sub">Temos o compromisso de prestar contas sobre a gestão dos recursos que
+                    recebemos, garantindo que cada doação seja utilizada de forma responsável.</p>
             </div>
             <div class="page-hero__accent" aria-hidden="true"></div>
         </div>
 
         <div class="container trans-body">
 
+            <!-- Toolbar -->
             <div class="transparency-toolbar fade-in-up delay-1">
                 <div class="toolbar-row">
-                    <div class="toolbar-col">
-                        <label for="drive-sort-filter" class="toolbar-label">Ordenar por</label>
-                        <select id="drive-sort-filter" class="toolbar-select">
-                            <option value="recent" selected>Mais recentes</option>
-                            <option value="oldest">Mais antigos</option>
-                            <option value="az">Nome (A–Z)</option>
-                            <option value="za">Nome (Z–A)</option>
-                        </select>
-                        
+
+                    <!-- Busca -->
+                    <div class="toolbar-search">
+                        <i class="bi bi-search toolbar-search__icon"></i>
+                        <input type="text" id="searchInput" class="toolbar-search__input"
+                            placeholder="Buscar documento...">
                     </div>
-                    <div class="toolbar-col toolbar-col--right">
-                        <span class="toolbar-label">Visualização</span>
-                        <div class="view-toggle" role="group" aria-label="Alternar visualização">
-                            <button type="button" class="view-btn active" data-drive-view="grid" aria-pressed="true">
-                                <i class="bi bi-grid-3x3-gap-fill"></i> Grid
-                            </button>
-                            <button type="button" class="view-btn" data-drive-view="list" aria-pressed="false">
-                                <i class="bi bi-view-list"></i> Lista
-                            </button>
-                        </div>
+
+                    <!-- Filtros -->
+                    <div class="toolbar-filters">
+                        <select id="sortSelect" class="toolbar-select" title="Ordenar por">
+                            <option value="modifiedTime desc">Mais recentes</option>
+                            <option value="modifiedTime asc">Mais antigos</option>
+                            <option value="name asc">Nome (A–Z)</option>
+                            <option value="name desc">Nome (Z–A)</option>
+                        </select>
+
+                        <select id="typeSelect" class="toolbar-select" title="Tipo de arquivo">
+                            <option value="">Todos os tipos</option>
+                            <option value="pdf">PDF</option>
+                            <option value="sheet">Planilha</option>
+                            <option value="document">Documento</option>
+                            <option value="presentation">Apresentação</option>
+                            <option value="image">Imagem</option>
+                        </select>
+                    </div>
+
+                    <!-- Toggle de visualização -->
+                    <div class="view-toggle" role="group" aria-label="Alternar visualização">
+                        <button type="button" class="view-btn active" data-view="grid" aria-pressed="true" title="Grade">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                        </button>
+                        <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="Lista">
+                            <i class="bi bi-list-ul"></i>
+                        </button>
                     </div>
                 </div>
+
+                <!-- Contador -->
+                <div class="toolbar-info" id="toolbarInfo"></div>
             </div>
 
-            <div class="drive-frame-container fade-in-up delay-2">
-                <iframe id="transparency-drive-frame" title="Documentos de Transparência" loading="lazy"></iframe>
+            <!-- Container de documentos -->
+            <div id="docsContainer" class="docs-grid fade-in-up delay-2">
+                <div class="doc-skeleton"></div>
+                <div class="doc-skeleton"></div>
+                <div class="doc-skeleton"></div>
+                <div class="doc-skeleton"></div>
+                <div class="doc-skeleton"></div>
+                <div class="doc-skeleton"></div>
+            </div>
+
+            <!-- Estado vazio -->
+            <div id="emptyState" class="empty-state d-none">
+                <i class="bi bi-folder2-open"></i>
+                <p>Nenhum documento encontrado.</p>
+                <span>Tente ajustar os filtros ou a busca.</span>
+            </div>
+
+            <!-- Estado de erro -->
+            <div id="errorState" class="error-state d-none">
+                <i class="bi bi-exclamation-triangle"></i>
+                <p>Não foi possível carregar os documentos.</p>
+                <span id="errorDetail"></span>
+                <button class="retry-btn" id="retryBtn">
+                    <i class="bi bi-arrow-clockwise"></i> Tentar novamente
+                </button>
             </div>
 
         </div>
@@ -63,7 +110,6 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="assets/js/pages/sobre.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -71,65 +117,195 @@
     <script src="assets/js/global/componentes.js"></script>
 
     <script>
-        (function () {
-            const DRIVE_FOLDER_ID = '1vpCu76AjQ8LvcNJ5HsF599hp8G_JMS00';
-            const iframe      = document.getElementById('transparency-drive-frame');
-            const viewButtons = document.querySelectorAll('[data-drive-view]');
-            const sortSelect  = document.getElementById('drive-sort-filter');
+        /* ═══════════════════════════════════════════════════════════════════
+           ★ CONFIGURAÇÃO
+           Substitua YOUR_API_KEY pela chave gerada no Google Cloud Console.
+           O FOLDER_ID já está preenchido com a pasta do cliente.
+        ═══════════════════════════════════════════════════════════════════ */
+        const CONFIG = {
+            API_KEY:   'AIzaSyART4e0QUFiqEwvP8rmOEh0FeZ9q81iz2k',
+            FOLDER_ID: '1VuFJFYNJ9ogi6XEnM6BSZS6vXqcs2HX_',
+        };
 
-            if (!iframe || !sortSelect) return;
+        /* ─── Ícones / labels por MIME type ────────────────────────────── */
+        const MIME_MAP = {
+            'application/vnd.google-apps.spreadsheet':  { icon: 'bi-file-earmark-spreadsheet-fill', label: 'Planilha',     color: '#1e6b3d', type: 'sheet' },
+            'application/vnd.google-apps.document':     { icon: 'bi-file-earmark-word-fill',         label: 'Documento',    color: '#1a56db', type: 'document' },
+            'application/vnd.google-apps.presentation': { icon: 'bi-file-earmark-slides-fill',       label: 'Apresentação', color: '#d97706', type: 'presentation' },
+            'application/pdf':                          { icon: 'bi-file-earmark-pdf-fill',           label: 'PDF',          color: '#dc2626', type: 'pdf' },
+            'image/jpeg':                               { icon: 'bi-file-earmark-image-fill',         label: 'Imagem',       color: '#7c3aed', type: 'image' },
+            'image/png':                                { icon: 'bi-file-earmark-image-fill',         label: 'Imagem',       color: '#7c3aed', type: 'image' },
+        };
+        const DEFAULT_MIME = { icon: 'bi-file-earmark-fill', label: 'Arquivo', color: '#64748b', type: 'other' };
+        const getMime = mt => MIME_MAP[mt] || DEFAULT_MIME;
 
-            const BASE_URL = `https://drive.google.com/embeddedfolderview?id=${DRIVE_FOLDER_ID}`;
-            let currentView = 'grid';
-            let currentSort = 'recent';
-            let reloadTimer = null;
+        function formatDate(iso) {
+            if (!iso) return '—';
+            return new Date(iso).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
 
-            const sortConfig = {
-                recent: { sort: '13', direction: 'd' },
-                oldest: { sort: '13', direction: 'a' },
-                az:     { sort: '1',  direction: 'a' },
-                za:     { sort: '1',  direction: 'd' }
-            };
+        function formatSize(bytes) {
+            if (!bytes) return '';
+            const kb = bytes / 1024;
+            return kb < 1024 ? kb.toFixed(0) + ' KB' : (kb / 1024).toFixed(1) + ' MB';
+        }
 
-            function buildSrc() {
-                const { sort, direction } = sortConfig[currentSort] || sortConfig.recent;
-                return `${BASE_URL}&sort=${sort}&direction=${direction}#${currentView}`;
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        /* ─── Estado ───────────────────────────────────────────────────── */
+        let allFiles    = [];
+        let currentView = 'grid';
+
+        const container   = document.getElementById('docsContainer');
+        const emptyState  = document.getElementById('emptyState');
+        const errorState  = document.getElementById('errorState');
+        const errorDetail = document.getElementById('errorDetail');
+        const toolbarInfo = document.getElementById('toolbarInfo');
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect  = document.getElementById('sortSelect');
+        const typeSelect  = document.getElementById('typeSelect');
+        const viewBtns    = document.querySelectorAll('[data-view]');
+
+        /* ─── Fetch ────────────────────────────────────────────────────── */
+        async function fetchFiles(orderBy) {
+            const q      = `'${CONFIG.FOLDER_ID}' in parents and trashed=false`;
+            const fields = 'files(id,name,mimeType,modifiedTime,size,webViewLink)';
+            const url    = new URL('https://www.googleapis.com/drive/v3/files');
+            url.searchParams.set('q',       q);
+            url.searchParams.set('orderBy', orderBy);
+            url.searchParams.set('fields',  fields);
+            url.searchParams.set('key',     CONFIG.API_KEY);
+            url.searchParams.set('pageSize','100');
+
+            const res = await fetch(url);
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err?.error?.message || `Erro HTTP ${res.status}`);
             }
+            const data = await res.json();
+            return data.files || [];
+        }
 
-            function refreshIframe() {
-                if (reloadTimer) clearTimeout(reloadTimer);
-                iframe.classList.add('loading');
-                iframe.removeAttribute('src');
-                reloadTimer = setTimeout(function () {
-                    iframe.src = buildSrc();
-                }, 80);
-            }
+        /* ─── Filtros locais ───────────────────────────────────────────── */
+        function applyFilters() {
+            const search  = searchInput.value.trim().toLowerCase();
+            const typeVal = typeSelect.value;
 
-            iframe.addEventListener('load', function () {
-                iframe.classList.remove('loading');
+            const filtered = allFiles.filter(f => {
+                const mime = getMime(f.mimeType);
+                return (!search  || f.name.toLowerCase().includes(search))
+                    && (!typeVal || mime.type === typeVal);
             });
 
-            sortSelect.addEventListener('change', function () {
-                currentSort = this.value;
-                refreshIframe();
-            });
+            renderFiles(filtered);
+        }
 
-            viewButtons.forEach(function (button) {
-                button.addEventListener('click', function () {
-                    const desiredView = button.getAttribute('data-drive-view');
-                    if (desiredView === currentView) return;
-                    currentView = desiredView;
-                    viewButtons.forEach(function (btn) {
-                        const isActive = btn === button;
-                        btn.classList.toggle('active', isActive);
-                        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-                    });
-                    refreshIframe();
+        /* ─── Render ───────────────────────────────────────────────────── */
+        function renderFiles(files) {
+            container.innerHTML = '';
+            emptyState.classList.toggle('d-none', files.length > 0);
+            container.classList.toggle('d-none', files.length === 0);
+
+            toolbarInfo.textContent = files.length === 0
+                ? 'Nenhum resultado'
+                : `${files.length} documento${files.length !== 1 ? 's' : ''}`;
+
+            if (!files.length) return;
+
+            files.forEach((file, i) => {
+                const mime = getMime(file.mimeType);
+                const el   = document.createElement('a');
+                el.href    = file.webViewLink || '#';
+                el.target  = '_blank';
+                el.rel     = 'noopener noreferrer';
+                el.style.animationDelay = `${Math.min(i * 0.04, 0.5)}s`;
+
+                if (currentView === 'grid') {
+                    el.className = 'doc-card';
+                    el.innerHTML = `
+                        <div class="doc-card__icon" style="color:${mime.color}">
+                            <i class="bi ${mime.icon}"></i>
+                        </div>
+                        <div class="doc-card__body">
+                            <span class="doc-card__badge" style="background:${mime.color}22;color:${mime.color}">${mime.label}</span>
+                            <p class="doc-card__name">${escapeHtml(file.name)}</p>
+                            <div class="doc-card__meta">
+                                <span><i class="bi bi-clock"></i> ${formatDate(file.modifiedTime)}</span>
+                                ${file.size ? `<span><i class="bi bi-hdd"></i> ${formatSize(file.size)}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="doc-card__arrow"><i class="bi bi-arrow-up-right"></i></div>`;
+                } else {
+                    el.className = 'doc-row';
+                    el.innerHTML = `
+                        <div class="doc-row__icon" style="color:${mime.color}">
+                            <i class="bi ${mime.icon}"></i>
+                        </div>
+                        <div class="doc-row__body">
+                            <p class="doc-row__name">${escapeHtml(file.name)}</p>
+                            <span class="doc-row__badge" style="background:${mime.color}22;color:${mime.color}">${mime.label}</span>
+                        </div>
+                        <div class="doc-row__meta">
+                            <span>${formatDate(file.modifiedTime)}</span>
+                            ${file.size ? `<span>${formatSize(file.size)}</span>` : ''}
+                        </div>
+                        <div class="doc-row__arrow"><i class="bi bi-arrow-up-right"></i></div>`;
+                }
+
+                container.appendChild(el);
+            });
+        }
+
+        /* ─── Carrega tudo ─────────────────────────────────────────────── */
+        async function load() {
+            container.innerHTML = Array(6).fill('<div class="doc-skeleton"></div>').join('');
+            container.classList.remove('d-none');
+            emptyState.classList.add('d-none');
+            errorState.classList.add('d-none');
+            toolbarInfo.textContent = '';
+
+            try {
+                allFiles = await fetchFiles(sortSelect.value);
+                applyFilters();
+            } catch (err) {
+                console.error(err);
+                container.classList.add('d-none');
+                errorState.classList.remove('d-none');
+                errorDetail.textContent = err.message;
+            }
+        }
+
+        /* ─── Listeners ────────────────────────────────────────────────── */
+        let searchTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(applyFilters, 250);
+        });
+
+        sortSelect.addEventListener('change', load);  // rebusca para ordenar na API
+        typeSelect.addEventListener('change', applyFilters); // filtra local
+
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const v = btn.getAttribute('data-view');
+                if (v === currentView) return;
+                currentView = v;
+                viewBtns.forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                    b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
                 });
+                container.className = `docs-${currentView} fade-in-up`;
+                applyFilters();
             });
+        });
 
-            refreshIframe();
-        })();
+        document.getElementById('retryBtn').addEventListener('click', load);
+
+        load();
     </script>
 </body>
 

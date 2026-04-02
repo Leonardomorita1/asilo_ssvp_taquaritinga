@@ -1,48 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* ═══════════════════════════════════════════════════════════════════════
-       CARROSSEL — proporção 16/9 travada via padding-top trick
-       Imagens como background-image garantem cobertura perfeita em qualquer
-       tamanho de tela sem altura fixa, eliminando problemas de responsividade.
+       CARROSSEL
     ════════════════════════════════════════════════════════════════════════ */
     const carrosselHtml = `
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-inner">
-
-            <div class="carousel-item active">
-                <div class="carousel-slide" style="background-image: url('https://asvptaquaritinga.wordpress.com/wp-content/uploads/2013/06/6087_273496662750098_810615361_n.jpg');">
-                    <div class="carousel-slide__overlay"></div>
-                    
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="carousel-slide" style="background-image: url('https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/511172349_682711494730143_4412416869394310891_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=2a1932&_nc_ohc=YQoScBbobwoQ7kNvwH_9AmU&_nc_oc=Adrnev6fCQb9_5sAUfMot5w7xgH4SxMNYrnzOYVmqe6JU4MzIqDrCQ7A7KdVH_tol2M&_nc_zt=23&_nc_ht=scontent-gru2-2.xx&_nc_gid=y0G6pzfO5FoE6qVIg292cA&_nc_ss=7a30f&oh=00_AfwNwYVrz5qKoGYiEIqHZxfvl4sM6MHamOH4uTM0CvLw8g&oe=69CCA445');">
-                    <div class="carousel-slide__overlay"></div>
-                    
-                </div>
-            </div>
-
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
-        </button>
-
-        <div class="carousel-dots">
-            <button class="carousel-dot active" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
-            <button class="carousel-dot" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-
+    <div class="img-hero">
+        <img src="assets/img/IMG_9114.JPG" alt="Carrossel SSVP Brasil" class="img-fluid">
     </div>
     `;
-    document.getElementById('carousel-placeholder').innerHTML = carrosselHtml;
+    const carouselPlaceholder = document.getElementById('carousel-placeholder');
+    if (carouselPlaceholder) {
+        carouselPlaceholder.innerHTML = carrosselHtml;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        HEADER
@@ -79,7 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </header>
     `;
-    document.getElementById('header-placeholder').innerHTML = headerHtml;
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) {
+        headerPlaceholder.innerHTML = headerHtml;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        FOOTER
@@ -143,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="footer-bottom mt-5 py-4">
             <div class="container">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <p class="mb-3 mb-md-0">&copy; 2026 Lar São Vicente de Paulo. Todos os direitos reservados.</p>
+                    <p class="mb-3 mb-md-0">© 2026 Lar São Vicente de Paulo. Todos os direitos reservados.</p>
                     <div class="social-icons">
                         <a href="https://wa.me/5516991128704" target="_blank" class="social-icon-circle" aria-label="WhatsApp">
                             <i class="bi bi-whatsapp"></i>
@@ -160,7 +132,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </footer>
     `;
-    document.getElementById('footer-placeholder').innerHTML = footerHtml;
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) {
+        footerPlaceholder.innerHTML = footerHtml;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        Link ativo no nav baseado na página atual
@@ -173,14 +148,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Toggle sidebar mobile — exposto globalmente para os onclick inline
-═══════════════════════════════════════════════════════════════════════════ */
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    if (!sidebar || !overlay) return;
-    const isOpen = sidebar.classList.toggle('open');
-    overlay.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-}
