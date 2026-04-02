@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <div class="col-lg-4 col-md-6 footer-about text-center text-md-start">
                     <h5>Sociedade de São Vicente de Paulo</h5>
-                    <p class="pe-3">Há mais de 192 anos proporcionando esperança e dignidade.</p>
+                    <p class="pe-3">Proporcionando esperança e dignidade.</p>
                     <a href="sobre.html" class="btn-saiba-mais mt-2 d-inline-block">Saiba Mais</a>
                 </div>
 
