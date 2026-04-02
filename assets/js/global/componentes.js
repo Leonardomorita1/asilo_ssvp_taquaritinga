@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ════════════════════════════════════════════════════════════════════════ */
     const carrosselHtml = `
     <div class="img-hero">
-        <img src="assets/img/IMG_9114.JPG" alt="Carrossel SSVP Brasil" class="img-fluid">
+        <img src="assets/img/hero.JPG" alt="Carrossel SSVP Brasil" class="img-fluid">
     </div>
     `;
     const carouselPlaceholder = document.getElementById('carousel-placeholder');
@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:asilotaquaritinga@hotmail.com" class="text-decoration-none text-white">
+                            <a href="mailto:asilosvptaquaritinga@gmail.com" class="text-decoration-none text-white">
                                 <i class="bi bi-envelope-at-fill"></i>
-                                asilotaquaritinga@hotmail.com
+                                asilosvptaquaritinga@gmail.com
                             </a>
                         </li>
                         <li>
