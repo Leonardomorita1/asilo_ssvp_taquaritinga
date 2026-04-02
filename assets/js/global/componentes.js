@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="row g-4 g-lg-5">
 
                 <div class="col-lg-4 col-md-6 footer-about text-center text-md-start">
-                    <h5>Sociedade de São Vicente de Paulo</h5>
+                    <h5>Lar de São Vicente de Paulo</h5>
                     <p class="pe-3">Proporcionando esperança e dignidade.</p>
                     <a href="sobre.html" class="btn-saiba-mais mt-2 d-inline-block">Saiba Mais</a>
                 </div>
